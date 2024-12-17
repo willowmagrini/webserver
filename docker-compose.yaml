@@ -13,24 +13,7 @@ services:
       - web
     restart: always
 
-  site1:
-    image: httpd:alpine
-    container_name: site1
-    networks:
-      - web
-    environment:
-      - VIRTUAL_HOST=site1.local
-    restart: always
-
-  site2:
-    image: nginx:alpine
-    container_name: site2
-    networks:
-      - web
-    environment:
-      - VIRTUAL_HOST=site2.local
-    restart: always
-
 networks:
   web:
-    driver: bridge
+    external: true
+
